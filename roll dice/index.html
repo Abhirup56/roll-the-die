@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background:linear-gradient(90deg,
+                rgb(234, 0, 255),
+                rgb(10, 14, 243));
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .heading{
+            color: aliceblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 70px;
+            font-weight: bolder;
+            height: fit-content;
+            width: fit-content;
+        }
+        .box{
+           margin: 50px; 
+           border:10px solid rgb(251, 251, 251);
+           border-radius: 20%;
+           padding: 50px;
+           display: flex;
+           box-shadow: 0px 0px 20px white, inset 0px 0px 20px white;
+        }
+        #roll{
+            height: 100px;
+            width: 270px;
+            color: aqua;
+            background-color: black;
+            font-size: 40px;
+            border-radius: 50px;
+            border:2px solid  rgb(255, 106, 0);
+            box-shadow: 0px 0px 50px rgb(255, 106, 0);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading" style="text-shadow: 0px 0px 20px rgb(0, 238, 255)">Roll The Dice</div>
+        <div class="box">
+            <img src="dice_1.png" alt="" width="200px" class="img">
+        </div>
+        <button id="roll" onclick="rolling()">ROLL IT</button>
+    </div>
+
+    <script>
+        function rolling(){
+            let playgif = document.querySelector(".img");
+            playgif.setAttribute("src","dice-game.gif");
+            setTimeout(()=>{
+                let random = Math.floor(Math.random() * 6);
+                console.log(random+1);
+                playgif.setAttribute("src",`dice_${random}.png`);
+            },1000);
+        }
+    </script>
+</body>
+</html>
